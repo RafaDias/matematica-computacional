@@ -3,14 +3,18 @@ from utils import print_header, print_t
 from errors import error_global, error_local
 
 
-def middle_point(x, y, h, n):
+def euler(a, b, h, xi, yi):
+    x = xi
+    y = yi
+    
     print_header(x, y)
-    for i in range(n):
-        y1 = y + f(x,y) * h / 2;
-        x1 = x + h / 2
-        y = y + f(x1, y1) * h
-        x = x + h;
+    
+    while a < b:
+        y += h * f(x, y)
+        x += h
         print_t(x, f_exact(x), y, error_global(f_exact(x), y), error_local(x, f_exact(x), h))
+        a += h
+
 
 if __name__=='__main__':
-    middle_point(0, 1, 0.5, 4)
+    euler(0, 4, 0.5, 0, 1)
