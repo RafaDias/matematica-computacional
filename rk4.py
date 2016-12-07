@@ -1,5 +1,10 @@
+import matplotlib
+
+
 def f(x, y):
-    return -2 * x**3 + 12 * x **2 - 20 * x + 8.5
+    #return -2 * x**3 + 12 * x **2 - 20 * x + 8.5
+    return y * x ** 2 - 1.1 * y #Exercício 25.5
+
 
 def rk4(x, y, h, n):
     for i in range(n):
@@ -16,4 +21,5 @@ def rk4(x, y, h, n):
         x = x + h
         print(x, y)
 
-rk4(0, 1, 0.5, 8)
+if __name__=='__main__':
+    rk4(0, 1, 0.5, 4)
